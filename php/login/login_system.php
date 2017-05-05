@@ -50,7 +50,7 @@ if (!is_logged_in()) {
     # DEBUG: echo $user_exists;
     # DEBUG: print_r($user_info);
 
-    # set the session variables (user_id, user_type, username, name)
+    # set the session variables (user_id, user_type, username)
     # print_r($user_info);
     $_SESSION["user_id"] = $user_info[0];
     $type_id = $user_info[1];
@@ -88,9 +88,9 @@ function validate($username, $password)
 function get_user_type($TypeId)
 {
     if ($TypeId == 1) {
-        return "HOH";
+        return "hoh";
     } else if ($TypeId == 2) {
-        return "Interpreter";
+        return "interpreter";
     } else {
         return "";
     }
@@ -100,10 +100,10 @@ function get_user_type($TypeId)
 function to_list_page()
 {
 
-    if ($_SESSION["user_type"] == "HOH") {
-        header("Location: ../HOH/main.php");
-    } else if ($_SESSION["user_type"] == "Interpreter") {
-        header("Location: ../Interpreter/main.php");
+    if ($_SESSION["user_type"] == "hoh") {
+        header("Location: ../hoh/main.php");
+    } else if ($_SESSION["user_type"] == "interpreter") {
+        header("Location: ../interpreter/main.php");
     }
 
     die();
