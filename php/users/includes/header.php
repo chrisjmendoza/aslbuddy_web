@@ -2,7 +2,7 @@
 <!-- author Joe McLaughlin -->
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="../style/site.css">
+    <link rel="stylesheet" type="text/css" href="../../style/site.css">
 <?php
 /**
  * Created by PhpStorm.
