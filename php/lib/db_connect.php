@@ -8,7 +8,7 @@
 
 $user = 'root';
 $password = 'root';
-$db = 'inventory';
+$db = 'aslbuddy_db';
 $host = 'localhost';
 $port = 8889;
 
