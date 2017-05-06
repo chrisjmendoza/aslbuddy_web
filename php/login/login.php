@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['name'] = "myusername";
         $_SESSION['login_user'] = $myusername;
 
-        header("location: '../welcome.php'");
+        header("location: ../welcome.php");
     } else {
         $error = "Your Login Name or Password is invalid";
     }
