@@ -10,10 +10,10 @@ $user = 'root';
 $password = 'root';
 $db = 'aslbuddy_db';
 $host = 'localhost';
-$port = 8889;
+$port = 3306;
 
 $link = mysqli_init();
-$success = mysqli_real_connect(
+$success = mysqli_connect(
     $link,
     $host,
     $user,
