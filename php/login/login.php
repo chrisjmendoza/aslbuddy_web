@@ -7,7 +7,7 @@
  */
 
 require('../lib/db_connect.php');
-#session_start();
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
@@ -29,8 +29,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
 
     if($count == 1) {
+        $userType = $row["isInterpreter"];
         $_SESSION['name'] = "myusername";
         $_SESSION['login_user'] = $myusername;
+        $_SESSION['user_type'] = $userType;
 
         header("location: ../welcome.php");
     } else {

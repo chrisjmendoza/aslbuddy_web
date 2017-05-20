@@ -5,7 +5,9 @@
  * Date: 5/6/17
  * Time: 3:09 PM
  */
-include('session.php');
+include('includes/session.php');
+echo $_SESSION['name']."\n";
+echo $_SESSION['user_type']."\n";
 ?>
 <html>
 

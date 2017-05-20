@@ -10,8 +10,8 @@
  * Date: 5/4/17
  * Time: 6:02 PM
  */
-    require '../lib/db_connect.php';
-    require 'includes/functions_inc.php';
+    require '../../lib/db_connect.php';
+    require '../includes/functions_inc.php';
 
     // Current page name, stripped of folder path
 define('THIS PAGE', basename($_SERVER['PHP_SELF']));
