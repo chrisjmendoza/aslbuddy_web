@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="ASLBuddy MAMP">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ASLBuddy softdev.xyz" uploadOnCheckin="78a43b94-94ed-4625-a299-b486eeac2f23">
     <serverData>
-      <paths name="ASLBuddy MAMP">
+      <paths name="ASLBuddy softdev.xyz">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/aslbuddy/" />
+            <mapping deploy="/aslbuddy" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
@@ -18,5 +18,7 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="ASLBuddy softdev.xyz" />
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

@@ -21,7 +21,7 @@ function is_logged_in() {
         && isset($_SESSION["username"]) && isset($_SESSION["name"]));
 }
 
-# Sends the user to login.html & kills the current page
+# Sends the user to login.php & kills the current page
 function to_login() {
     header("Location: ../login/logout.php");
     die();

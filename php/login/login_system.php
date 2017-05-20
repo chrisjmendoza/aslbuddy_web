@@ -2,7 +2,7 @@
 include_once("../login/login_utils.php");
 
 #Author: Kellan Nealy & Chris Mendoza
-# Accepts POST form data from "login.html", logs in the user & redirects
+# Accepts POST form data from "login.php", logs in the user & redirects
 # to "hoh_landing.php", "interpreter_landing.php", or "admin_landing.php"
 # DOES NOT output any html content
 
@@ -26,7 +26,7 @@ if (!is_logged_in()) {
     $user_info = array();
 
     # SELECT queries return a result set
-    if ($result = $mysqli->query("SELECT userId, isInterpreter, email FROM user WHERE email = \"$username\" AND passHash = \"$password\";")) {
+    if ($result = $mysqli->query("SELECT userId, isInterpreter, email FROM user WHERE username = \"$username\" AND passHash = \"$password\";")) {
         foreach ($result as $row) {
             foreach ($row as $element) {
                 if ($element) {
@@ -115,7 +115,7 @@ function get_db_connection()
 {
     include '../lib/db_connect.php';
     //create and verify connection
-    $mysqli_obj = new mysqli($servername, $username, $password, $dbname);
+    $mysqli_obj = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
     if ($mysqli_obj->connect_error) {
         die('DB Connection Error: ' . $mysqli_obj->connect_errno . $mysqli_obj->connect_error);

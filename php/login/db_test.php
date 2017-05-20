@@ -6,27 +6,16 @@
  * Time: 7:21 PM
  */
 
-$user = 'root';
-$password = 'root';
-$db = 'aslbuddy_db';
-$host = 'localhost';
-$port = 8889;
-
-echo 'Initiating Link';
-$link = mysqli_init();
-$success = mysqli_connect(
-    $link,
-    $host,
-    $user,
-    $password,
-    $db,
-    $port
-);
+include('../lib/db_connect.php');
 
     // Username and password sent from form
-echo 'Select Statement';
+echo 'Select Statement\n';
     $sql = "SELECT * FROM aslbuddy_db.user";
     $result = mysqli_query($db,$sql);
     var_dump($result);
     $row = $result->fetch_array(MYSQL_BOTH);
-    echo $row[1]; // or echo $row[1]
+    for($i = 0; $i < 1000; $i++) {
+    echo $row[$i]."\n";
+}
+
+$db->close();

@@ -9,6 +9,6 @@
     session_start();
     session_destroy();
     session_regenerate_id(true);
-    header("Location: login.html");
+    header("Location: login.php");
     die();
 ?>

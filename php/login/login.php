@@ -6,8 +6,8 @@
  * Time: 1:44 PM
  */
 
-include('../lib/db_connect.php');
-session_start();
+require('../lib/db_connect.php');
+#session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
@@ -15,8 +15,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = mysqli_real_escape_string($db, $_POST['username']);
     $mypassword = mysqli_real_escape_string($db, $_POST['password']);
 
-    $sql = "SELECT userId FROM user WHERE username = '$myusername' and passHash = '$mypassword'";
+    $sql = "SELECT userId FROM aslbuddy_db.user WHERE username = '$myusername' and passHash = '$mypassword'";
     $result = mysqli_query($db,$sql);
+    if (!$result) {
+        printf("Error: %s\n", mysqli_error($db));
+        exit();
+    }
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $active = $row['active'];
 
@@ -32,6 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $error = "Your Login Name or Password is invalid";
     }
+    $db->close();
 }
 ?>
 <html>
