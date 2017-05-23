@@ -7,7 +7,7 @@
  */
 
 require('../lib/db_connect.php');
-session_start();
+#session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form

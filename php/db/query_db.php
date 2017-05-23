@@ -10,7 +10,7 @@ function db_connect() {
     include '../lib/db_connect.php';
 
     // create and verify connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     if (!$conn) {
         die("Connect Failed: " . mysqli_connect_error());
     }
