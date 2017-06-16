@@ -9,13 +9,13 @@
 require('../lib/db_connect.php');
 #session_start();
 
-if($_SERVER["REQUEST_METHOD"] =="GET") {
+if($_SERVER["REQUEST_METHOD"] == "GET") {
     // username and password sent from form
 
-    $myusername = mysqli_real_escape_string($db, $_GET['username']);
+    $myusername = mysqli_real_escape_string($db, $_GET['email']);
     $mypassword = mysqli_real_escape_string($db, $_GET['password']);
 
-    $sql = "SELECT userId FROM aslbuddy_db.user WHERE username = '$myusername' and passHash = '$mypassword'";
+    $sql = "SELECT * FROM aslbuddy_db.user WHERE email = '$myusername' and passHash = '$mypassword'";
     $result = mysqli_query($db,$sql);
     if (!$result) {
         printf("Error: %s\n", mysqli_error($db));
@@ -23,6 +23,8 @@ if($_SERVER["REQUEST_METHOD"] =="GET") {
     }
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $active = $row['active'];
+    $userType = $row['isInterpreter'];
+    $userId = $row['userId'];
 
     $count = mysqli_num_rows($result);
 
@@ -30,15 +32,16 @@ if($_SERVER["REQUEST_METHOD"] =="GET") {
 
 
     if($count == 1) {
-        $userType = $row["isInterpreter"];
         $return_data = [
-            loginsucess=> true,
-            username => $myusername,
-            useType => $userType
+            loginsuccess=> true,
+            userId => $userId,
+            email => $myusername,
+            isInterpreter => $userType
+
         ];
     } else {
         $return_data = [
-            loginsucess=> false,
+            loginsuccess=> false,
             username => $myusername,
             error => "Your Login Name or Password is invalid"
         ];
